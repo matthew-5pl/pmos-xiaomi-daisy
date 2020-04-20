@@ -1,0 +1,28 @@
+# Contributor: Matthew5pl <matteofo06@gmail.com>
+# Maintainer: Matthew5pl <matteofo06@gmail.com>
+# Reference: <https://postmarketos.org/devicepkg>
+pkgname="device-xiaomi-daisy"
+pkgdesc="Xiaomi Mi A2 Lite"
+pkgver=0.1
+pkgrel=0
+url="https://postmarketos.org"
+license="MIT"
+arch="aarch64"
+options="!check !archcheck"
+depends="postmarketos-base linux-xiaomi-daisy mkbootimg mesa-dri-swrast msm-fb-refresher"
+makedepends="devicepkg-dev"
+source="deviceinfo
+initfs-hook.sh
+"
+
+build() {
+	devicepkg_build $startdir $pkgname
+}
+
+package() {
+	devicepkg_package $startdir $pkgname
+}
+
+
+sha512sums="032114f7d39c1ee9adae673260c270a36cc341d909c64367685ffa6982e20ee2c5d24afb4f9f9f237afc33291804ab71db40a8246c326cfac2faa8cdf04a5b4c  deviceinfo
+89c3a201a6639acbce411c33ccbdeb75b1a5efa3938e9f2b0db5976225e4f6d47e8f5b7fd42b399963e41c9e1df4db457964e447b1b64eed79514169d36b06f3  initfs-hook.sh"
