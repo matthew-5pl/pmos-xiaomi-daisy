@@ -1,0 +1,25 @@
+# Contributor: Matthew5pl <matteofo06@gmail.com>
+# Maintainer: Matthew5pl <matteofo06@gmail.com>
+# Reference: <https://postmarketos.org/devicepkg>
+pkgname="device-xiaomi-daisy-2"
+pkgdesc="Xiaomi Mi A2 Lite"
+pkgver=0.1
+pkgrel=0
+url="https://postmarketos.org"
+license="MIT"
+arch="aarch64"
+options="!check !archcheck"
+depends="postmarketos-base linux-xiaomi-daisy-2 mkbootimg mesa-dri-swrast"
+makedepends="devicepkg-dev"
+source="deviceinfo"
+
+build() {
+	devicepkg_build $startdir $pkgname
+}
+
+package() {
+	devicepkg_package $startdir $pkgname
+}
+
+
+sha512sums="26dc892ee6f0dede6149002dc31bab43cde5b1fa468be0db5664619269717d9d26a6f3ce7b400ec7b42045316888e270be8667b642fe4302487cefcabc101060  deviceinfo"
