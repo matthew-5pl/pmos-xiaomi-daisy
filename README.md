@@ -18,8 +18,10 @@ Progress on xiaomi-daisy (based on daisy-q official kernel from xiaomi):
 -logo shows up and display lights up<br/>
 -device not recognised by pc, can't telnet/ssh into it<br/>
 -weston and plasma-mobile do not seem to load, possibly for framebuffer issues. if you manage to figure it out, make a pull request asap!
+![alt text](https://imgur.com/80W2Jw5)
 
-Progress on xiaomi-daisy-2 (based on https://github.com/Aarqw12/kernel_loki):
+
+Progress on xiaomi-daisy-2 (based on https://github.com/Aarqw12/kernel_loki):<br/>
 -kernel loads<br/>
 -screen remains off, logo does not show up<br/>
 -able to telnet into the device if the debug initfs hook is set before running 'pmbootstrap install'<br/>
