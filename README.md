@@ -13,7 +13,7 @@ All of the credit for the kernel bases go to xiaomi (xiaomi-daisy) and Aarqw12 (
 7) Check if you got stuff to work, the main focus right now is on getting the framebuffer to work and fixing ssh errors.
 8) If you get any improvements, feel free to make a pull request and include all necessary files for linux and device building.
 
-Progress on xiaomi-daisy (based on daisy-q official kernel from xiaomi):
+Progress on xiaomi-daisy (based on daisy-q official kernel from xiaomi):<br/>
 -kernel loads<br/>
 -logo shows up and display lights up<br/>
 -device not recognised by pc, can't telnet/ssh into it<br/>
