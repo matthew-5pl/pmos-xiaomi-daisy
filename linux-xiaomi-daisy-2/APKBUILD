@@ -1,0 +1,51 @@
+# Contributor: Matthew5pl <matteofo06@gmail.com>
+# Maintainer: Matthew5pl <matteofo06@gmail.com>
+# Reference: <https://postmarketos.org/vendorkernel>
+# Kernel config based on: arch/arm64/configs/msm8953-perf_defconfig
+
+pkgname="linux-xiaomi-daisy-2"
+pkgver=4.9.219
+pkgrel=0
+pkgdesc="Xiaomi Mi A2 Lite kernel fork"
+arch="aarch64"
+_carch="arm64"
+_flavor="xiaomi-daisy-2"
+url="https://kernel.org"
+license="GPL-2.0-only"
+options="!strip !check !tracedeps"
+makedepends="bash bc bison devicepkg-dev flex openssl-dev perl"
+
+# Source
+_repository="kernel_loki"
+_commit="9d5c0d84923999e0d047353d2d5245d761cd6422"
+_config="config-$_flavor.$arch"
+source="
+	$pkgname-$_commit.tar.gz::https://github.com/Aarqw12/$_repository/archive/$_commit.tar.gz
+	$_config
+	config-xiaomi-daisy-2.aarch64
+	device_testing_linux-xiaomi-lavender_0003-Add-config-option-to-fix-bootloader-cmdline-args.patch
+	05_fix_mdp3_ctrl_off.patch
+"
+builddir="$srcdir/$_repository-$_commit"
+_outdir="out"
+
+prepare() {
+	default_prepare
+	. downstreamkernel_prepare
+}
+
+build() {
+	unset LDFLAGS
+	make O="$_outdir" ARCH="$_carch" CC="${CC:-gcc}" \
+		KBUILD_BUILD_VERSION="$((pkgrel + 1 ))-postmarketOS"
+}
+
+package() {
+	downstreamkernel_package "$builddir" "$pkgdir" "$_carch" "$_flavor" "$_outdir"
+}
+
+sha512sums="4cda4ba48a9132ade1dc88a82d8eaecbf88bb90709a69f6cb8aef50cd87efb395665e1113aac4dc589df7cc309a3f2ed89c3989804dbe968535396a8cc562137  linux-xiaomi-daisy-2-9d5c0d84923999e0d047353d2d5245d761cd6422.tar.gz
+aac900ae4522aba804b5657169ba768b2191aa7efb7719a81fdd34b258e1ba2be75f5219562b341aa8df0e1f03021b8df3a7667e31abd321cf5895281f75f8f3  config-xiaomi-daisy-2.aarch64
+aac900ae4522aba804b5657169ba768b2191aa7efb7719a81fdd34b258e1ba2be75f5219562b341aa8df0e1f03021b8df3a7667e31abd321cf5895281f75f8f3  config-xiaomi-daisy-2.aarch64
+9ce867c4254b537ef5d2485780c26b72da8a3a8767ba71557f3b48d6c550e0e14c8c3e575b31bf65d2878f08a8a4926e48a1c2f1be534bf80a7a57f58313b0fd  device_testing_linux-xiaomi-lavender_0003-Add-config-option-to-fix-bootloader-cmdline-args.patch
+fbc61e379403990167853f4c4fbdfa22d7e9661a7eedecf2a75eec2a8008991a82d0a61be844ab4b1c88383f3fa79b43eff10b1039e44ad5a758a173cbf6386b  05_fix_mdp3_ctrl_off.patch"
