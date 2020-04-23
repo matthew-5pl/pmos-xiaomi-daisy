@@ -17,8 +17,9 @@ Progress on xiaomi-daisy (based on daisy-q official kernel from xiaomi):<br/>
 -kernel loads<br/>
 -logo shows up and display lights up<br/>
 -device not recognised by pc, can't telnet/ssh into it<br/>
--weston and plasma-mobile do not seem to load, possibly for framebuffer issues. if you manage to figure it out, make a pull request asap!
+-weston NOW LOADS!
 ![alt text](https://raw.githubusercontent.com/matthew-5pl/pmos-xiaomi-daisy/master/xiaomi-daisy-preview.jpg)
+![alt_text](https://matrix-client.matrix.org/_matrix/media/r0/download/matrix.org/pisdBTqEGTpYCflTlYyejqfu)
 
 
 Progress on xiaomi-daisy-2 (based on https://github.com/Aarqw12/kernel_loki):<br/>
