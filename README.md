@@ -1,3 +1,6 @@
+# Deprecated
+This port is deprecated. Please refer to [this page](https://wiki.postmarketos.org/wiki/Xiaomi_MI_A2_Lite_(xiaomi-daisy)).
+
 # pmos-xiaomi-daisy
 Efforts in running PostMarketOS (https://postmarketos.org/) on Xiaomi's "Daisy" device (Mi A2 Lite).
 
